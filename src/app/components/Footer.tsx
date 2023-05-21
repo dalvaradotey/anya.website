@@ -16,7 +16,7 @@ const Footer = () => (
             <li className="py-2">
               <a
                 href="https://api.whatsapp.com/send/?phone=56981429016&text=¡Hola! Tengo la siguiente consulta:"
-                className="flex bg-white font-bold rounded-md px-2 py-2 inline text-sm hover:drop-shadow-sm"
+                className="flex bg-white font-bold rounded-md px-2 py-2 inline text-sm hover:drop-shadow-sm transition duration-700 ease-in-out"
               >
                 <span className="inline-flex">
                   <Image src={WhatsApp} alt="WhatsApp" width="35" />
@@ -27,7 +27,7 @@ const Footer = () => (
             <li className="py-2">
               <a
                 href="mailto:anyaecontacto@gmail.com"
-                className="flex bg-white font-bold text-sm rounded-md px-2 py-2 hover:drop-shadow-sm"
+                className="flex bg-white font-bold text-sm rounded-md px-2 py-2 hover:drop-shadow-sm transition duration-700 ease-in-out"
               >
                 <span className="inline-flex">
                   <Image src={Email} alt="Emial" width="35" />
@@ -53,7 +53,7 @@ const Footer = () => (
             <a
               href="https://www.facebook.com/profile.php?id=100092200394347"
               target="_blank"
-              className="hover:drop-shadow-sm"
+              className="hover:drop-shadow-sm transition duration-700 ease-in-out"
             >
               <Image src={Facebook} alt="Facebook" width="35" />
             </a>
@@ -61,7 +61,7 @@ const Footer = () => (
           <li className="px-4 md:px-2">
             <a
               target="_blank"
-              className="hover:drop-shadow-sm"
+              className="hover:drop-shadow-sm transition duration-700 ease-in-out"
             >
               <Image src={Instagram} alt="Instagram" width="35" />
             </a>
