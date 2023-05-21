@@ -22,7 +22,7 @@ export default function Home() {
               <Image src={LogoPNG} className="text-white fill-white logo-hero" alt="Logo ANYA" />
             </div>
             <div className="w-full text-center px-8">
-              <h1 className="text-2xl text-gray-300 md:text-black text-xlg tracking-wide">Transformando telas olvidadas en <strong>creaciones renovadas</strong>.</h1>
+              <h1 className="text-2xl md:text-4xl text-gray-300 md:text-black text-xlg tracking-wide">Transformando telas olvidadas en <strong>creaciones renovadas</strong>.</h1>
             </div>
           </div>
         </div>
@@ -33,9 +33,9 @@ export default function Home() {
           <p className="text-gray-300 md:text-gray-500 mt-4 mb-3 uppercase font-bold tracking-wide text-sm">Productos hecho a mano</p>
         </div>
       </div>
-      <div className="bg-thistle px-8 py-12 md:px-30">
+      <div className="bg-thistle px-8 py-28 md:px-64 md:py-48">
         <div>
-          <h2 className="font-bold text-2xl">Moda consciente, telas reutilizadas.</h2>
+          <h2 className="font-bold text-5xl">Moda consciente, telas reutilizadas.</h2>
           <p className="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div className="py-6 md:flex">
@@ -53,7 +53,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="md:flex bg-platinum px-8 py-12">
+      <div className="md:flex bg-platinum px-8 py-28 md:px-64 md:py-48">
         <div className="md:w-1/2">
           <p className="text-center text-lg">Contáctanos</p>
           <ul className="py-4">
