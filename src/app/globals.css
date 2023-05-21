@@ -48,6 +48,18 @@ body {
   background-color: var(--color-thistle);
 }
 
+.border-lavender-blush {
+  border-color: var(--color-lavender-blush);
+}
+
+.border-platinum {
+  border-color: var(--color-platinum);
+}
+
+.border-thistle {
+  border-color: var(--color-thistle);
+}
+
 .arrow-container {
   width: 25px;
   /* cubic-bezier-easing = sine / mehr Beispiele: https://easings.net/ */

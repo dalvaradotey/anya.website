@@ -38,12 +38,12 @@ const Footer = () => (
       <p className="text-center">Síguenos en nuestras redes sociales</p>
       <ul className="flex justify-center py-4">
         <li className="px-2">
-          <a>
+          <a href="https://www.facebook.com/profile.php?id=100092200394347" target="_blank">
             <Image src={Facebook} alt="Facebook" width="45" />
           </a>
         </li>
         <li className="px-2">
-          <a>
+          <a target="_blank">
             <Image src={Instagram} alt="Instagram" width="45" />
           </a>
         </li>
