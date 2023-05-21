@@ -5,7 +5,7 @@ import Head from 'next/head'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Anya: transformando telas olvidadas en creaciones renovadas',
+  title: 'Anya | Transformando telas olvidadas en creaciones renovadas',
   description: 'Transformando telas olvidadas en creaciones renovadas',
 }
 
