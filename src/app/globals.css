@@ -107,16 +107,24 @@ body {
   width: 220px;
 }
 
+.logo-footer {
+  width: 200px;
+}
+
 .s0 {
   fill: #E2DCDE;
 }
 
 @media (min-width: 768px) {
   .hero-content-1 {
-    padding-top: 18%;
+    padding-top: 16%;
   }
 
   .logo-hero {
     width: 270px;
+  }
+
+  .logo-footer {
+    width: 300px;
   }
 }
