@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
-import Product1 from '../../../public/producto-1.jpg'
-import Product2 from '../../../public/producto-2.jpg'
-import Product3 from '../../../public/producto-3.jpg'
-import Product4 from '../../../public/producto-4.jpg'
+import Product1 from '../../public/producto-1.jpg'
+import Product2 from '../../public/producto-2.jpg'
+import Product3 from '../../public/producto-3.jpg'
+import Product4 from '../../public/producto-4.jpg'
 
-const Products = () => (
+const AboutOurProducts = () => (
   <div className="md:flex bg-thistle px-8 py-28 md:px-44">
     <div className="md:hidden">
       <div className="mb-10">
@@ -26,7 +26,7 @@ const Products = () => (
           alt="Producto 2"
         />
         <Image
-          className="w-full aspect-square object-cover rounded-lg mb-4 border-4 border-platinum"
+          className="w-full aspect-square object-cover rounded-lg mb-4 mt-4 md:mt-0 border-4 border-platinum"
           src={Product3}
           alt="Producto 3"
         />
@@ -46,4 +46,4 @@ const Products = () => (
   </div>
 )
 
-export default Products
+export default AboutOurProducts

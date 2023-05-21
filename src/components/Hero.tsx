@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import LogoPNG from '../../../public/logo.svg'
-import LogoWhitePNG from '../../../public/logo-white.svg'
+import LogoPNG from '../../public/logo.svg'
+import LogoWhitePNG from '../../public/logo-white.svg'
 
 const Hero = () => (
   <div

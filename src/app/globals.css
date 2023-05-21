@@ -115,6 +115,53 @@ body {
   fill: #E2DCDE;
 }
 
+.product-card {
+  width: 250px;
+  height: 320px;
+  background-position-x: center;
+}
+
+.product-category-colets {
+  background-color: #c026d3;
+}
+
+.product-category-randomGifts {
+  background-color: #e11d48;
+}
+
+.product-category-bowClips {
+  background-color: #9333ea;
+}
+
+.product-category-littleEars {
+  background-color: #4f46e5;
+}
+
+.product-category-bowCollars {
+  background-color: #0284c7;
+}
+
+.product-category-ponyTailBows {
+  background-color: #0891b2;
+}
+
+.product-category-headbands {
+  background-color: #059669;
+}
+
+.product-category-kits {
+  background-color: #65a30d;
+}
+
+.product-category-handkerchief {
+  background-color: #d97706;
+}
+
+.product-category-ribbon {
+  background-color: #dc2626;
+}
+
+
 @media (min-width: 768px) {
   .hero-content-1 {
     padding-top: 16%;
@@ -126,5 +173,10 @@ body {
 
   .logo-footer {
     width: 300px;
+  }
+
+  .product-card {
+    width: 300px;
+    height: 320px;
   }
 }

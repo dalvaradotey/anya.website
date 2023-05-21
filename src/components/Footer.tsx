@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
-import Facebook from '../../../public/facebook.svg'
-import Instagram from '../../../public/instagram.svg'
-import WhatsApp from '../../../public/whatsapp.svg'
-import Email from '../../../public/email.svg'
-import LogoSVG from '../../../public/logo.svg'
+import Facebook from '../../public/facebook.svg'
+import Instagram from '../../public/instagram.svg'
+import WhatsApp from '../../public/whatsapp.svg'
+import Email from '../../public/email.svg'
+import LogoSVG from '../../public/logo.svg'
 
 const Footer = () => (
   <>
