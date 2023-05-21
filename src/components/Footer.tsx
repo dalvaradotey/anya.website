@@ -53,7 +53,7 @@ const Footer = () => (
         <ul className="flex justify-center mt-4 md:mt-0 ml-5">
           <li className="px-4 md:px-2">
             <a
-              href="https://www.facebook.com/profile.php?id=100092200394347"
+              href="https://www.facebook.com/anya.accesorio"
               target="_blank"
               className="hover:drop-shadow-sm transition duration-700 ease-in-out"
             >
