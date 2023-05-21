@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import LogoPNG from '../../../public/logo.svg'
+import LogoWhitePNG from '../../../public/logo-white.svg'
 
 const Hero = () => (
   <div
@@ -10,7 +11,8 @@ const Hero = () => (
     <div className="z-3 relative w-full md:w-1/2 inline-block align-middle hero-content-1">
       <div className="flex flex-wrap justify-center md:justify-self-auto">
         <div className="text-center md:text-right">
-          <Image src={LogoPNG} className="text-white fill-white logo-hero" alt="Logo ANYA" />
+          <Image src={LogoWhitePNG} className="md:hidden text-white logo-hero" alt="Logo ANYA" />
+          <Image src={LogoPNG} className="hidden md:block text-white logo-hero" alt="Logo ANYA" />
         </div>
         <div className="w-full text-center px-8">
           <h1 className="text-2xl md:text-4xl text-gray-300 md:text-black text-xlg tracking-wide">Transformando telas olvidadas en <strong>creaciones renovadas</strong>.</h1>
