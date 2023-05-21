@@ -17,6 +17,7 @@ const Footer = () => (
               <a
                 href="https://api.whatsapp.com/send/?phone=56981429016&text=¡Hola! Tengo la siguiente consulta:"
                 className="flex bg-white font-bold rounded-md px-2 py-2 inline text-sm hover:drop-shadow-sm transition duration-700 ease-in-out"
+                target="_blank"
               >
                 <span className="inline-flex">
                   <Image src={WhatsApp} alt="WhatsApp" width="35" />
@@ -28,6 +29,7 @@ const Footer = () => (
               <a
                 href="mailto:anyaecontacto@gmail.com"
                 className="flex bg-white font-bold text-sm rounded-md px-2 py-2 hover:drop-shadow-sm transition duration-700 ease-in-out"
+                target="_blank"
               >
                 <span className="inline-flex">
                   <Image src={Email} alt="Emial" width="35" />
