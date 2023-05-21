@@ -11,18 +11,24 @@ const Footer = () => (
       <p className="text-center text-lg">Contáctanos</p>
       <ul className="py-4">
         <li className="py-2">
-          <a href="https://api.whatsapp.com/send/?phone=56981429016&text=¡Hola! Tengo la siguiente consulta:" className="flex bg-white font-bold rounded-md px-2 py-2 inline">
+          <a
+            href="https://api.whatsapp.com/send/?phone=56981429016&text=¡Hola! Tengo la siguiente consulta:"
+            className="flex bg-white font-bold rounded-md px-2 py-2 inline text-sm"
+          >
             <span className="inline-flex">
               <Image src={WhatsApp} alt="WhatsApp" width="35" />
-              <span style={{ marginTop: '7px' }}>&nbsp;&nbsp;+56 9 8142 9016</span>
+              <span style={{ marginTop: '8px' }}>&nbsp;&nbsp;WhatsApp: +56 9 8142 9016</span>
             </span>
           </a>
         </li>
         <li className="py-2">
-          <a href="mailto:anyaecontacto@gmail.com" className="flex bg-white font-bold rounded-md px-2 py-2">
+          <a
+            href="mailto:anyaecontacto@gmail.com"
+            className="flex bg-white font-bold text-sm rounded-md px-2 py-2"
+          >
             <span className="inline-flex">
               <Image src={Email} alt="Emial" width="35" />
-              <span style={{ marginTop: '7px' }}>&nbsp;&nbsp;anyaecontacto@gmail.com</span>
+              <span style={{ marginTop: '7px' }}>&nbsp;&nbsp;Correo: anyaecontacto@gmail.com</span>
             </span>
           </a>
         </li>
