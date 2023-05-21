@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const PRODUCT_WHATSAPP_MESSAGE = 'Hola! Estoy viendo la tienda anyaeco.com y me interesa el siguiente producto: ';
 
-const setWhatsAppMessage = (item: IProduct) => `${PRODUCT_WHATSAPP_MESSAGE} ${item?.name} #${item?.id}`
+const setWhatsAppMessage = (item: IProduct) => `${PRODUCT_WHATSAPP_MESSAGE} ${item?.name} (ID:${item?.id})`
 
 const ProductItem = (props: { item: IProduct }) => (
   <a
