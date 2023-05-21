@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --color-lavender-blush: #F1E4E8;
+  --color-platinum: #E2DCDE;
+  --color-thistle: #CEB1BE;
+  --color-facebook: #1877F2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +21,86 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(0, 0, 0);
+}
+
+.color-lavender-blush {
+  color: var(--color-lavender-blush);
+}
+
+.color-platinum {
+  color: var(--color-platinum);
+}
+
+.color-thistle {
+  color: var(--color-thistle);
+}
+
+.bg-lavender-blush {
+  background-color: var(--color-lavender-blush);
+}
+
+.bg-platinum {
+  background-color: var(--color-platinum);
+}
+
+.bg-thistle {
+  background-color: var(--color-thistle);
+}
+
+.arrow-container {
+  width: 25px;
+  /* cubic-bezier-easing = sine / mehr Beispiele: https://easings.net/ */
+  animation: bounce 1600ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  cursor: pointer;
+  height: 20px;
+}
+
+.arrow-down {
+  height: 6px;
+  background: #CEB1BE;
+  transform: rotate(45deg);
+  transform-origin: 0% 0%;
+  border-radius: 5px;
+}
+.arrow-down:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 100%;
+  border-radius: 5px;
+  background: #CEB1BE;
+  transform: rotate(-90deg);
+  transform-origin: 0% 100%;
+}
+
+@keyframes bounce {
+50% {
+    transform: translateY(-15px);
+  }
+}
+
+.rect {
+  shape-rendering: crispEdges;
+  fill: url(#rg);
+}
+
+.hero-content-1 {
+  padding-top: 30%;
+}
+
+.logo-hero {
+  width: 170px;
+}
+
+@media (min-width: 768px) {
+  .hero-content-1 {
+    padding-top: 18%;
+  }
+
+  .logo-hero {
+    width: 270px;
+  }
 }
