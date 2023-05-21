@@ -66,10 +66,10 @@ export default function Home() {
               </a>
             </li>
             <li className="py-2">
-              <a href="mailto:anya@gmail.com" className="flex bg-white font-bold rounded-md px-2 py-2">
+              <a href="mailto:anyaecontacto@gmail.com" className="flex bg-white font-bold rounded-md px-2 py-2">
                 <span className="inline-flex">
                   <Image src={Email} alt="Emial" width="35" />
-                  <span style={{ marginTop: '7px' }}>&nbsp;&nbsp;anya@gmail.com</span>
+                  <span style={{ marginTop: '7px' }}>&nbsp;&nbsp;anyaecontacto@gmail.com</span>
                 </span>
               </a>
             </li>
