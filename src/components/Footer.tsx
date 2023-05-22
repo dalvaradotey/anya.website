@@ -42,7 +42,8 @@ const Footer = () => (
         <div className="md:w-1/2 text-center flex flex-wrap justify-center">
           <Image src={LogoSVG} className="logo-footer" alt="Logo footer" />
           <div className="w-full mt-0">
-            <p className="uppercase font-bold tracking-wide text-sm mt-0">Hecho a mano</p>
+            <p className="uppercase font-bold tracking-wide text-xs mt-0">Accesorios hecho a mano</p>
+            <p className="text-xs">© 2023</p>
           </div>
         </div>
       </div>

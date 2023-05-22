@@ -10,7 +10,7 @@ const AboutOurProducts = () => (
     <div className="md:hidden">
       <div className="mb-10">
         <h2 className="font-bold text-5xl mb-4 leading-10">Moda consciente, telas reutilizadas.</h2>
-        <p className="mt-2 text-lg">Tenemos una variedad de productos. Reutilizamos telas para darle un nuevo uso y crear accesorios únicos.</p>
+        <p className="mt-2 text-lg">Al adquirir nuestros productos, no solo obtendrás un accesorio único, también estarás contribuyendo al cuidado del medio ambiente al darle una segunda vida a un material reutilizado.</p>
       </div>
     </div>
     <div className="md:w-3/5">
@@ -40,7 +40,7 @@ const AboutOurProducts = () => (
     <div className="w-2/5 hidden md:flex items-center">
       <div className="px-10">
         <h2 className="font-bold text-5xl mb-4 leading-10">Moda consciente, telas reutilizadas.</h2>
-        <p className="mt-2 text-lg">Tenemos una variedad de productos. Reutilizamos telas para darle un nuevo uso y crear accesorios únicos.</p>
+        <p className="mt-2 text-lg">Al adquirir nuestros productos, no solo obtendrás un accesorio único, también estarás contribuyendo al cuidado del medio ambiente al darle una segunda vida a un material reutilizado.</p>
       </div>
     </div>
   </div>

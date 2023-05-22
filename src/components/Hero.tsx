@@ -23,7 +23,7 @@ const Hero = () => (
       <div className="arrow-container" style={{ marginLeft: '48%' }}>
         <div className="arrow-down"></div>
       </div>
-      <p className="text-gray-300 md:text-gray-500 mt-4 mb-3 uppercase font-bold tracking-wide text-sm">Productos hecho a mano</p>
+      <p className="text-gray-300 md:text-gray-500 mt-4 mb-3 uppercase font-bold tracking-wide text-sm">Accesorios hecho a mano</p>
     </div>
   </div>
 );

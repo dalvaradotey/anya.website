@@ -18,7 +18,7 @@ const ProductItem = (props: { item: IProduct }) => (
     }}>
     <div className="relative h-full">
       <div
-        className={`absolute top-0 right-0 product-category-${props?.item?.category} text-white font-bold py-1 px-3`}
+        className={`absolute top-0 right-0 bg-thistle text-white font-bold py-1 px-3`}
       >
         {props?.item?.name}
       </div>
@@ -28,13 +28,16 @@ const ProductItem = (props: { item: IProduct }) => (
       >
         #{props?.item?.id}
       </div>
-      <div className="absolute bottom-4 left-3">
-        <p className="text-2xl mb-2">{props?.item?.price}</p>
+      <div className="flex absolute bottom-4 left-3">
         <button
-          className="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-100"
+          className="px-4 py-2 font-semibold text-sm bg-lavender-blush  text-gray-700 rounded-md shadow-sm opacity-100"
         >
           Comprar
         </button>
+        <div>
+          <p className="uppercase font-bold mb-0 text-xs ml-4">Precio</p>
+          <p className="text-2xl ml-3 mt-0 text-right" style={{ marginTop: '-4px'}}>{props?.item?.price}</p>
+        </div>
       </div>
     </div>
   </a>
@@ -47,7 +50,8 @@ const Products = () => {
 
   return (
     <div className="py-28 pl-12 md:pl-28">
-      <h3 className="font-bold text-5xl leading-10 mb-12">Nuestra tienda</h3>
+      <h3 className="font-bold text-5xl leading-10 mb-4">Nuestra tienda</h3>
+      <p className="mb-12 text-2xl">Revisa nuestro <strong>catálogo de accesorios</strong>.</p>
       <div className="flex mb-3">
         <p>Filtrar por categoría:&nbsp;</p>
         <select value={filter} onChange={filterHandler}>
