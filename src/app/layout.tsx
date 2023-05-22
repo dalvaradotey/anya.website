@@ -34,6 +34,9 @@ export default function RootLayout({
           </Script>
         </>
       )}
+      <Head>
+        <meta name="theme-color" content="#CEB1BE" />
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   )
