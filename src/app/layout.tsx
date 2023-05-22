@@ -8,6 +8,22 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Anya | Transformando telas olvidadas en creaciones renovadas',
   description: 'Transformando telas olvidadas en creaciones renovadas',
+  themeColor: '#CEB1BE',
+  openGraph: {
+    title: 'Anya | Transformando telas olvidadas en creaciones renovadas',
+    description: 'Transformando telas olvidadas en creaciones renovadas',
+    url: 'https://anyaeco.com',
+    siteName: 'Anya',
+    images: [
+      {
+        url: '/avatar.png',
+        width: 662,
+        height: 692,
+      },
+    ],
+    locale: 'es-CL',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -34,9 +50,6 @@ export default function RootLayout({
           </Script>
         </>
       )}
-      <Head>
-        <meta name="theme-color" content="#CEB1BE" />
-      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   )
