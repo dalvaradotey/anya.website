@@ -63,6 +63,7 @@ const Footer = () => (
           </li>
           <li className="px-4 md:px-2">
             <a
+              href="https://www.instagram.com/anya.accesorio"
               target="_blank"
               className="hover:drop-shadow-sm transition duration-700 ease-in-out"
             >
