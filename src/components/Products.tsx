@@ -61,7 +61,7 @@ const Products = () => {
           )}
         </select>
       </div>
-      <div className="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-14">
+      <div className="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-14" style={{ zIndex: 0 }}>
         {products.map((item, key) => (
           (filter === 'all' || filter === item.category) && <ProductItem key={key} item={item} />
         ))}

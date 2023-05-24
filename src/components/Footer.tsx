@@ -1,10 +1,7 @@
-import Image from 'next/image'
-
-import Facebook from '../../public/facebook.svg'
-import Instagram from '../../public/instagram.svg'
-import WhatsApp from '../../public/whatsapp.svg'
-import Email from '../../public/email.svg'
-import LogoSVG from '../../public/logo.svg'
+import WhatsAppIcon from '../../public/icons/whatsapp.svg'
+import EmailIcon from '../../public/icons/email.svg'
+import LogoIcon from '../../public/icons/logo.svg'
+import FollowUs from './FollowUs'
 
 const Footer = () => (
   <>
@@ -20,7 +17,7 @@ const Footer = () => (
                 target="_blank"
               >
                 <span className="inline-flex">
-                  <Image src={WhatsApp} alt="WhatsApp" width="35" />
+                  <WhatsAppIcon width="35" fill="#48c857" />
                   <span style={{ marginTop: '8px' }}>&nbsp;&nbsp;WhatsApp: +56 9 8142 9016</span>
                 </span>
               </a>
@@ -32,7 +29,7 @@ const Footer = () => (
                 target="_blank"
               >
                 <span className="inline-flex">
-                  <Image src={Email} alt="Emial" width="35" />
+                  <EmailIcon width="35"/>
                   <span style={{ marginTop: '7px' }}>&nbsp;&nbsp;Correo: anyaecontacto@gmail.com</span>
                 </span>
               </a>
@@ -40,37 +37,17 @@ const Footer = () => (
           </ul>
         </div>
         <div className="md:w-1/2 text-center flex flex-wrap justify-center">
-          <Image src={LogoSVG} className="logo-footer" alt="Logo footer" />
+          <LogoIcon className="logo-footer" />
           <div className="w-full mt-0">
             <p className="uppercase font-bold tracking-wide text-xs mt-0">Accesorios hecho a mano</p>
-            <p className="text-xs">© 2023</p>
+            <p className="text-xs">desde el sur de Chile 2023 ©</p>
           </div>
         </div>
       </div>
     </div>
     <div className="md:w-full flex py-5 md:px-64 bg-gray-50">
       <div className="w-full md:flex text-center">
-        <p className="mt-2 tracking-wide text-sm">Síguenos en nuestras redes sociales</p>
-        <ul className="flex justify-center mt-4 md:mt-0 ml-5">
-          <li className="px-4 md:px-2">
-            <a
-              href="https://www.facebook.com/anya.accesorio"
-              target="_blank"
-              className="hover:drop-shadow-sm transition duration-700 ease-in-out"
-            >
-              <Image src={Facebook} alt="Facebook" width="35" />
-            </a>
-          </li>
-          <li className="px-4 md:px-2">
-            <a
-              href="https://www.instagram.com/anya.accesorio"
-              target="_blank"
-              className="hover:drop-shadow-sm transition duration-700 ease-in-out"
-            >
-              <Image src={Instagram} alt="Instagram" width="35" />
-            </a>
-          </li>
-        </ul>
+        <FollowUs />
       </div>
     </div>
   </>
