@@ -20,7 +20,9 @@ export default function Post({ post }: IProps) {
         <meta name="description" content={post?.description} key="desc" />
         <meta property="og:title" content={post?.title} />
         <meta property="og:description" content={post?.description} />
-        <meta property="og:image" content={`https://anyeco.com/blog-imgs/bienvenidos/${post?.imageName}.jpg`} />
+        <meta property="og:image" content={`https://anyeco.com/blog-imgs/bienvenidos/${post?.imageName}-og.jpg`} />
+        <meta property="og:image:width" content="662"/>
+        <meta property="og:image:height" content="692"/>
       </Head>
       <PageContainer>
         <h1 className="text-5xl mb-5 mx-4 text-gray-600 mt-4 md:mt-0">{post?.title}</h1>
