@@ -20,7 +20,7 @@ export default function Post({ post }: IProps) {
         <meta name="description" content={post?.description} key="desc" />
         <meta property="og:title" content={post?.title} />
         <meta property="og:description" content={post?.description} />
-        <meta property="og:image" content={`https://anyeco.com/blog-imgs/${post?.slug}/${post?.imageName}-og.jpg`} />
+        <meta property="og:image" content={`https://anyeco.com/avatar.png`} />
         <meta property="og:image:width" content="662"/>
         <meta property="og:image:height" content="692"/>
       </Head>
