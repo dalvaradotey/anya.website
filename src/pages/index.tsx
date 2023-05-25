@@ -1,20 +1,16 @@
-import FollowUs from "@/components/FollowUs";
 import Layout from "@/components/Layout";
-import { IPost } from "@/interfaces/post"
-
 import Head from "next/head";
-import PageContainer from "@/components/PageContainer";
-import PostCard from "@/components/PostCard";
-import PostService from "@/services/PostService";
 import Hero from "@/components/Hero";
 import AboutOurProducts from "@/components/AboutOurProducts";
-import Products from "@/components/Products";
+import ProductsHome from "@/components/ProductsHome";
+import CategoryService from "@/services/CategoryService";
+import { ICategory } from "@/interfaces/category";
 
 interface IProps {
-  posts: IPost[]
+  categories: ICategory[]
 }
 
-export default function Home({ products }: any) {
+export default function Home({ categories }: IProps) {
   return (
     <Layout>
       <Head>
@@ -27,18 +23,18 @@ export default function Home({ products }: any) {
       </Head>
       <Hero />
       <AboutOurProducts />
-      <Products />
+      <ProductsHome categories={categories} />
     </Layout>
   )
 }
 
 export async function getStaticProps({ params }: any) {
-  /*
-  const postService = new PostService
-  const posts = await postService.get({
-    'populate[0]': 'image',
+  const categoryService = new CategoryService
+  const categories = await categoryService.get({
+    'populate[0]': 'products',
+    'populate[1]': 'products.image,products.category',
+    'filters[products][isTop][$eq]': true,
   })
-  */
 
-  return { props: { products: [] }, revalidate: 60 };
+  return { props: { categories: categories?.data }, revalidate: 60 };
 }
