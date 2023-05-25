@@ -3,6 +3,10 @@ import Link from 'next/link'
 
 const navbarLinks = [
   {
+    name: 'Tienda',
+    path: 'tienda'
+  },
+  {
     name: 'Blog',
     path: 'blog',
   },
@@ -26,7 +30,7 @@ const Navbar = () => {
               <Link
                 key={key}
                 href={`/${link?.path}`}
-                className="px-4 link-border"
+                className="px-4 link-border mx-2"
               >
                 {link?.name}
               </Link>
