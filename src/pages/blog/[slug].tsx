@@ -68,7 +68,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
   const postService = new PostService
   const posts = await postService.get({
-    slug: params?.slug,
+    'filters[slug][$eq]': params?.slug,
     'populate[0]': 'image',
     'populate[1]': 'author.image',
   })
