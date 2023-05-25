@@ -30,7 +30,7 @@ const ShopContainer = ({ categories, defaultCategoryId }: IProps) => {
           </select>
         </div>
       )}
-      <div className="relative w-full flex flex-wrap md:gap-4 md:gap-y-4 pb-14" style={{ zIndex: 0 }}>
+      <div className="relative w-full flex flex-wrap md:gap-4 gap-y-4 pb-14" style={{ zIndex: 0 }}>
         {categories.map((category: ICategory, _: any) => 
           category?.attributes?.products?.data?.map((product: IProduct, productKey: any) => (
             (filter === 0 || filter === category.id) && <Product key={productKey} product={product} />            
