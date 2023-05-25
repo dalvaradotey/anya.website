@@ -8,6 +8,7 @@ import PageContainer from "@/components/PageContainer"
 import ReadTime from "@/components/ReadTime"
 import Author from "@/components/Author"
 import PostService from "@/services/PostService"
+import Image from "next/image"
 
 interface IProps {
   post: IPost
@@ -27,10 +28,14 @@ export default function Post({ post }: IProps) {
         <h1 className="text-5xl mb-5 mx-4 text-gray-600 mt-4 md:mt-0">{post?.attributes?.title}</h1>
         <p className="mx-4 mb-4 text-xl md:text-lg italic text-gray-600">{post?.attributes?.description}</p>  
         <ReadTime />
-        <div className={`w-full bg-cover bg-center`} style={{
-          height: 400,
-          backgroundImage: `url('${post?.attributes?.image?.data?.attributes?.formats?.large?.url}')`,
-        }}/>
+        <div className="relative w-full h-96">
+          <Image
+            src={post?.attributes?.image?.data?.attributes?.formats?.large?.url}
+            fill={true}
+            className="object-fit w-100"
+            alt={post?.attributes?.image?.data?.attributes?.alternativeText || ''}
+          />
+        </div>
         <Author post={post} />
         <div className="px-5 md:px-8">
           <div

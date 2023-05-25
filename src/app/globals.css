@@ -93,6 +93,10 @@ body {
   padding-bottom: 5px ;
 }
 
+.object-fit {
+  object-fit: cover;
+}
+
 @keyframes bounce {
 50% {
     transform: translateY(-15px);
