@@ -1,13 +1,13 @@
-import FollowUs from "@/components/FollowUs";
-import Layout from "@/components/Layout";
-import { IPost } from "@/data/posts"
+import FollowUs from "@/components/FollowUs"
+import Layout from "@/components/Layout"
+import { IPost } from "@/interfaces/post"
 import MarkdownIt from 'markdown-it'
 
-import Head from "next/head";
-import PageContainer from "@/components/PageContainer";
-import ReadTime from "@/components/ReadTime";
-import Author from "@/components/Author";
-import PostService from "@/services/PostService";
+import Head from "next/head"
+import PageContainer from "@/components/PageContainer"
+import ReadTime from "@/components/ReadTime"
+import Author from "@/components/Author"
+import PostService from "@/services/PostService"
 
 interface IProps {
   post: IPost
@@ -73,5 +73,5 @@ export async function getStaticProps({ params }: any) {
   const post = posts?.data[0]
   post.attributes.content = md.render(post?.attributes?.content)
 
-  return { props: { post } }
+  return { props: { post }, revalidate: 60 }
 }

@@ -1,6 +1,6 @@
 import FollowUs from "@/components/FollowUs";
 import Layout from "@/components/Layout";
-import { IPost } from "@/data/posts"
+import { IPost } from "@/interfaces/post"
 
 import Head from "next/head";
 import PageContainer from "@/components/PageContainer";
@@ -45,5 +45,5 @@ export async function getStaticProps({ params }: any) {
     'populate[0]': 'image',
   })
 
-  return { props: { posts: posts?.data } };
+  return { props: { posts: posts?.data }, revalidate: 60 };
 }

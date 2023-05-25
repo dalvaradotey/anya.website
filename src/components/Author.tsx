@@ -1,6 +1,6 @@
-import { IPost } from "@/data/posts";
-import { getHumanDate } from "@/helpers/dates";
-import Image from "next/image";
+import { IPost } from "@/interfaces/post"
+import { getHumanDate } from "@/helpers/dates"
+import Image from "next/image"
 
 interface IProps {
   post: IPost
@@ -13,14 +13,14 @@ const Author = ({ post }: IProps) => (
   >
     <Image
       className="absolute -left-6 w-24 h-24 rounded-full shadow-lg"
-      src={post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.url}
+      src={post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.url || ''}
       width={200}
       height={400}
       alt="Sentadas frente al mar"
     />
     <div className="flex flex-col py-5 pl-24">
       <strong className="text-gray-900 font-bold text-sm">{post?.attributes?.author?.data?.attributes?.name}</strong>
-      <span className="text-gray-500 text-sm font-medium">Publicado el {getHumanDate(post?.attributes?.author?.data?.attributes?.createdAt)}</span>
+      <span className="text-gray-500 text-sm font-medium">Publicado el {getHumanDate(post?.attributes?.createdAt)}</span>
     </div>
   </div>
 )

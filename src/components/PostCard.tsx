@@ -1,4 +1,4 @@
-import { IPost } from "@/data/posts"
+import { IPost } from "@/interfaces/post"
 import { getHumanDate } from "@/helpers/dates"
 import Link from "next/link"
 
