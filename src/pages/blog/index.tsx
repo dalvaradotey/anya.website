@@ -1,10 +1,11 @@
 import FollowUs from "@/components/FollowUs";
 import Layout from "@/components/Layout";
-import { posts, IPost } from "@/data/posts"
+import { IPost } from "@/data/posts"
 
 import Head from "next/head";
 import PageContainer from "@/components/PageContainer";
 import PostCard from "@/components/PostCard";
+import PostService from "@/services/PostService";
 
 interface IProps {
   posts: IPost[]
@@ -39,11 +40,10 @@ export default function Post({ posts }: IProps) {
 }
 
 export async function getStaticProps({ params }: any) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
-  //const res = await fetch(`https://.../posts/${params.id}`);
-  //const post = await res.json();
- 
-  // Pass post data to the page via props
-  return { props: { posts } };
+  const postService = new PostService
+  const posts = await postService.get({
+    'populate[0]': 'image',
+  })
+
+  return { props: { posts: posts?.data } };
 }
