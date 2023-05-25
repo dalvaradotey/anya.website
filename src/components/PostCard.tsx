@@ -9,7 +9,7 @@ interface IProps {
 
 const PostCard = ({ post }: IProps) => (
   <div className="w-full border-solid border-4 border-gray-100 rounded-md pb-5">
-    <h2 className="mb-2 font-medium text-gray-900 px-3 pt-2 h-14">{post?.attributes?.title}</h2>
+    <h2 className="mb-2 font-medium text-gray-900 px-3 pt-2 md:h-14">{post?.attributes?.title}</h2>
     <p className="px-3 text-xs mb-2 text-gray-500">Publicado el {getHumanDate(post?.attributes?.createdAt)}</p>
     <div className="relative w-full h-48">
       <Image
