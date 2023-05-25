@@ -5,7 +5,7 @@ const nextConfig = {
     GTAG_ID: process.env.GTAG_ID,
     API_URL: process.env.API_URL,
     API_TOKEN: process.env.API_TOKEN,
-    GTAG_MANGER_ID: process.env.GTAG_MANGER_ID,
+    GTAG_MANAGER_ID: process.env.GTAG_MANAGER_ID,
   },
   images: {
     //disableStaticImages: true,
