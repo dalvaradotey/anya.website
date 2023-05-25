@@ -7,7 +7,7 @@ const nextConfig = {
     API_TOKEN: process.env.API_TOKEN,
   },
   images: {
-    disableStaticImages: true,
+    //disableStaticImages: true,
     domains: [
       'anyaeco.s3.us-west-2.amazonaws.com',
     ],
