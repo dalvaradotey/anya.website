@@ -149,6 +149,17 @@ body {
   font-weight: 300;
 }
 
+.blog-content > ul {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.85rem; /* 28px */
+  margin-top: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem; /* 24px */
+  color: #4b5563;
+  font-weight: 300;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
 @media (min-width: 768px) {
   .hero-content-1 {
     padding-top: 16%;

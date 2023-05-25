@@ -35,6 +35,7 @@ export default function Post({ post }: IProps) {
             fill={true}
             className="object-fit w-100"
             alt={post?.attributes?.image?.data?.attributes?.alternativeText || ''}
+            quality={100}
           />
         </div>
         <Author post={post} />
