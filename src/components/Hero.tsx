@@ -1,10 +1,23 @@
 import LogoIcon from '../../public/icons/logo.svg'
+import Image from "next/image"
 
 const Hero = () => (
   <div
-    className="relative bg-[url('/bg-1.jpg')] md:bg-[url('/bg-2.jpg')] bg-cover w-full h-screen"
+    className="relative w-full h-screen"
     style={{ zIndex: 5000 }}
   >
+    <Image
+      src="/bg-1.jpg"
+      fill={true}
+      className="object-fit w-100 md:hidden"
+      alt="Foto de portada de accesorios Anya"
+    />
+    <Image
+      src="/bg-2.jpg"
+      fill={true}
+      className="object-fit w-100 hidden md:block"
+      alt="Foto de portada de accesorios Anya"
+    />
     <div className="md:hidden absolute w-full h-full" style={{ background: 'rgba(0, 0, 0, 0.6)' }} />
     <div className="z-3 relative w-full md:w-1/2 inline-block align-middle hero-content-1">
       <div className="flex flex-wrap justify-center md:justify-self-auto">
