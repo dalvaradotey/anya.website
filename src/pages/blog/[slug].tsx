@@ -23,6 +23,7 @@ export default function Post({ post }: IProps) {
         <meta property="og:title" content={post?.attributes.metaTitle} />
         <meta property="og:description" content={post?.attributes?.metaDescription} />
         <meta property="og:image" content={post?.attributes?.image?.data?.attributes?.formats?.large?.url} />
+        <meta property="og:url" content={`https://anyaeco.com/blog/${post?.attributes?.slug}`} />
       </Head>
       <PageContainer>
         <h1 className="text-5xl mb-5 mx-4 text-gray-600 mt-4 md:mt-0">{post?.attributes?.title}</h1>

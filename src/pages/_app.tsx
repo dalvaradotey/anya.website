@@ -1,9 +1,19 @@
-import '@/app/globals.css'
+import '@/pages/global.css'
+import Head from 'next/head'
 import Script from 'next/script'
 
 export default function MyApp({ Component, pageProps }: any) {
   return (
     <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta property="og:site_name" content="Anya accesorios" />
+        <meta property="og:locale" content="es-CL" />
+        <meta property="og:type" content="website" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#CEB1BE" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any"/>
+      </Head>
       {process.env.ENVIRONMENT === 'production' && (
         <Script id="google-analytics" strategy="afterInteractive">
           {`

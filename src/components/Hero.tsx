@@ -11,12 +11,14 @@ const Hero = () => (
       fill={true}
       className="object-fit w-100 md:hidden"
       alt="Foto de portada de accesorios Anya"
+      quality={100}
     />
     <Image
       src="/bg-2.jpg"
       fill={true}
       className="object-fit w-100 hidden md:block"
       alt="Foto de portada de accesorios Anya"
+      quality={100}
     />
     <div className="md:hidden absolute w-full h-full" style={{ background: 'rgba(0, 0, 0, 0.6)' }} />
     <div className="z-3 relative w-full md:w-1/2 inline-block align-middle hero-content-1">

@@ -16,6 +16,7 @@ const ProductItem = (props: { item: IProduct }) => (
       fill={true}
       className="object-fit w-100"
       alt=""
+      quality={100}
     />
     <div className="relative h-full">
       <div
