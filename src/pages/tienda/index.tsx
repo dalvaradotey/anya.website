@@ -6,10 +6,9 @@ import ShopContainer from "@/components/ShopContainer";
 
 interface IProps {
   categories: ICategory[]
-  defaultCategoryId: number
 }
 
-export default function Tienda({ categories, defaultCategoryId }: IProps) {
+export default function Tienda({ categories }: IProps) {
   return (
     <Layout>
       <Head>
@@ -20,36 +19,21 @@ export default function Tienda({ categories, defaultCategoryId }: IProps) {
         <meta property="og:image" content="https://anyaeco.com/avatar.png" />
         <meta property="og:url" content="https://anyaeco.com/tienda" />
       </Head>
-      <ShopContainer categories={categories} defaultCategoryId={defaultCategoryId} />
+      <ShopContainer categories={categories} />
     </Layout>
   )
 }
 
-export async function getServerSideProps(data: any) {
-  let queryFields: any = {
+export async function getStaticProps({ params }: any) {
+  const categoryService = new CategoryService
+  const categories = await categoryService.get({
     'populate[0]': 'products',
     'populate[1]': 'products.image,products.category',
     'filters[products][isTop][$eq]': true,
-  }
-
-  if (!!data?.query?.categoria) queryFields['filters[slug][$eq]'] = data?.query?.categoria
-
-  const categoryService = new CategoryService
-  const categories = await categoryService.get(queryFields)
-  
-  let defaultCategoryId = 0;
-
-  if (!!data?.query?.categoria) {
-    const findCategory = categories?.data?.find((i: any) => 
-      i?.attributes?.slug === data?.query?.categoria
-    )
-
-    if (!!findCategory) defaultCategoryId = findCategory?.id
-  }
+  })
 
   return {
     props: {
-      defaultCategoryId,
       categories: categories?.data,
     }
   };
