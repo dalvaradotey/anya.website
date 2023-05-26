@@ -7,6 +7,10 @@ const navbarLinks = [
     path: 'tienda'
   },
   {
+    name: 'Nosotros',
+    path: 'nosotros'
+  },
+  {
     name: 'Blog',
     path: 'blog',
   },
@@ -15,8 +19,8 @@ const navbarLinks = [
 const Navbar = () => {
   return (
     <header className="fixed w-full top-0 bg-white px-3 py-2 md:px-32" style={{ zIndex: 1000 }}>
-      <div className="flex">
-        <div className="w-2/5 md:w-1/5">
+      <div className="flex flex-wrap">
+        <div className="w-full md:w-1/5">
           <Link
             href="/"
           >
@@ -24,13 +28,13 @@ const Navbar = () => {
             <p className="text-xs font-bold uppercase" style={{ fontSize: '0.5rem', marginTop: '-5px' }}>Accesorios hecho a mano</p>
           </Link>
         </div>
-        <div className="w-3/5 md:w-4/5 text-right relative">
-          <div className="inline-block align-middle mt-4">
+        <div className="w-full md:w-4/5 text-center md:text-right relative">
+          <div className="inline-block align-middle mt-2 mb-2 md:mt-4 md:mb-0">
             {navbarLinks.map((link, key) =>
               <Link
                 key={key}
                 href={`/${link?.path}`}
-                className="px-4 link-border mx-2"
+                className="px-4 link-border mx-4 md:mx-2"
               >
                 {link?.name}
               </Link>
