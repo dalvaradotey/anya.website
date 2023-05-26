@@ -3,6 +3,7 @@ import Head from "next/head";
 import CategoryService from "@/services/CategoryService";
 import { ICategory } from "@/interfaces/category";
 import ShopContainer from "@/components/ShopContainer";
+import { setCategoryProductListStructuredData } from "@/structured-data/product";
 
 interface IProps {
   categories: ICategory[]
@@ -18,6 +19,11 @@ export default function Tienda({ categories }: IProps) {
         <meta property="og:description" content="Revisa nuestro catálogo de accesorios únicos confeccionados con telas reutilizadas." />
         <meta property="og:image" content="https://anyaeco.com/avatar.png" />
         <meta property="og:url" content="https://anyaeco.com/tienda" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: setCategoryProductListStructuredData(categories, true) }}
+          key="product-jsonld"
+        />
       </Head>
       <ShopContainer categories={categories} />
     </Layout>
