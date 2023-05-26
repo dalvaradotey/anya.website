@@ -15,7 +15,7 @@ const ShopContainer = ({ categories }: IProps) => {
   const filterHandler = (e: any) => setFilter(parseInt(e?.target?.value))
 
   return (
-    <div className="py-28 pl-12 md:pl-28">
+    <div className="py-28 pl-12 md:pl-28 mt-8 md:mt-0">
       <h3 className="font-bold text-5xl leading-10 mb-4">Nuestra tienda</h3>
       <p className="mb-12 text-2xl">Revisa nuestro <strong>catálogo de accesorios</strong>.</p>
       <div className="flex mb-3">
