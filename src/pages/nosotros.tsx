@@ -4,6 +4,7 @@ import Head from "next/head"
 import PageContainer from "@/components/PageContainer"
 import Image from "next/image"
 import FollowUs from "@/components/FollowUs"
+import HeaderContent from "@/components/HeaderContent"
 
 export default function Post({}: any) {
   return (
@@ -27,10 +28,10 @@ export default function Post({}: any) {
             />
           </div>
           <div className="text-lg justify">
-            <div className="bg-lavender-blush px-8 py-8">
-              <h1 className="font-bold text-5xl mb-4 leading-10">Acerca de nosotros</h1>
-              <p className="italic text-xl text-gray-600 leading-8">Anya nació de la necesidad de una pequeña niña desordenada y de su mamá que vio la bonita posibilidad de regalarle un básico hecho con dedicación y amor, rescatando historias de prendas que ya no podia usar pero que ahora era posible al darle segunda oportunidad.</p>
-            </div>
+            <HeaderContent
+              title="Acerca de nosotros"
+              description="Anya nació de la necesidad de una pequeña niña desordenada y de su mamá que vio la bonita posibilidad de regalarle un básico hecho con dedicación y amor, rescatando historias de prendas que ya no podia usar pero que ahora era posible al darle segunda oportunidad."
+            />
             <div className="px-8 blog-content">
               <p>Desde este sur en donde pareciera que la vida en ocasiones no avanza como en esos otros lugares donde va todo a prisa, te  saludo por estar  aqui para conocer un poquito de Anya. </p>
               <p className="justify">Soy mamá de una niña curiosa y alegre, mi  cototito como suelo llamarla desde que nació. Cototito como dice ella es su nombre de amor pero en realidad y para esta realidad en la que  todos existimos ella es Anais. Cuando Anais comenzó con sus trabalenguas, porque así suenan los primeros  intentos de los niños, respondia a la pregunta ¿cómo se llama tu mama?, ella en esa tierna vocecita repetia: ¡Yana!. Pasó el tiempo que  tenía que pasar hasta que ya pudo decirlo como realmente es, Yohana. Ese es mi nombre, Yohana. Y por que ANYA?...super simple Anya son nuestros nombres en la vocecita de cototito AN de Anais y YA de Yana.</p>

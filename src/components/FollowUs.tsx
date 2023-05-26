@@ -10,6 +10,7 @@ const FollowUs = () => (
           href="https://www.facebook.com/anya.accesorio"
           target="_blank"
           className="hover:drop-shadow-sm transition duration-700 ease-in-out"
+          aria-label="Síguenos en Facebook"
         >
           <FacebookIcon width="35" fill="#515151" />
         </a>
@@ -19,6 +20,7 @@ const FollowUs = () => (
           href="https://www.instagram.com/anya.accesorio"
           target="_blank"
           className="hover:drop-shadow-sm transition duration-700 ease-in-out"
+          aria-label="Síguenos en Instagram"
         >
           <InstagramIcon width="35" fill="#515151" />
         </a>
