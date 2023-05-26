@@ -16,7 +16,7 @@ const PostCard = ({ post }: IProps) => (
       <p className="px-3 text-xs mb-2 text-gray-500">Publicado el {getHumanDate(post?.attributes?.createdAt)}</p>
       <div className="relative w-full h-48">
         <Image
-          src={post?.attributes?.image?.data?.attributes?.formats?.large?.url}
+          src={post?.attributes?.image?.data?.attributes?.formats?.large?.url || ''}
           fill={true}
           className="object-fit w-100"
           alt={post?.attributes?.image?.data?.attributes?.alternativeText || ''}

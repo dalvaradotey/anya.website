@@ -18,7 +18,7 @@ const Product = ({ product }: IProps) => (
     className={`relative snap-center shrink-0 fill-img bg-cover product-card drop-shadow-md hover:drop-shadow-xl cursor-pointer`} 
   >
     <Image
-      src={product?.attributes?.image?.data?.attributes?.formats?.small?.url}
+      src={product?.attributes?.image?.data?.attributes?.formats?.small?.url || ''}
       fill={true}
       className="object-fit w-100"
       alt=""
