@@ -1,3 +1,15 @@
+export interface IImageFormat {
+  ext: string
+  url: string
+  hash: string
+  mime: string
+  name: string
+  path: string
+  size: number
+  width: number
+  height: number
+}
+
 export interface IImage {
   id: number
   attributes?: {
@@ -6,7 +18,12 @@ export interface IImage {
     caption?: string
     width?: number
     heigth?: number
-    formats?: any
+    formats?: {
+      large?: IImageFormat
+      small?: IImageFormat
+      medium?: IImageFormat
+      thumbnail?: IImageFormat
+    }
     ext?: string
     mime?: string
     url: string

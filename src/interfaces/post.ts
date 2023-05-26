@@ -15,6 +15,8 @@ export interface IPost {
       data: IImage
     }
     createdAt: string
+    updatedAt: string
+    publishedAt: string
     description: string
     content: string
   }

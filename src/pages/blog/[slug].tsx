@@ -10,6 +10,8 @@ import Author from "@/components/Author"
 import PostService from "@/services/PostService"
 import Image from "next/image"
 
+import { setPostStructuredData } from "@/structured-data/post"
+
 interface IProps {
   post: IPost
 }
@@ -24,6 +26,11 @@ export default function Post({ post }: IProps) {
         <meta property="og:description" content={post?.attributes?.metaDescription} />
         <meta property="og:image" content={post?.attributes?.image?.data?.attributes?.formats?.large?.url} />
         <meta property="og:url" content={`https://anyaeco.com/blog/${post?.attributes?.slug}`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: setPostStructuredData(post, true) }}
+          key="product-jsonld"
+        />
       </Head>
       <PageContainer>
         <h1 className="text-5xl mb-5 mx-4 text-gray-600 mt-4 md:mt-0">{post?.attributes?.title}</h1>
@@ -31,7 +38,7 @@ export default function Post({ post }: IProps) {
         <ReadTime />
         <div className="relative w-full h-96">
           <Image
-            src={post?.attributes?.image?.data?.attributes?.formats?.large?.url}
+            src={post?.attributes?.image?.data?.attributes?.formats?.large?.url || ''}
             fill={true}
             className="object-fit w-100"
             alt={post?.attributes?.image?.data?.attributes?.alternativeText || ''}

@@ -6,6 +6,7 @@ import Head from "next/head";
 import PageContainer from "@/components/PageContainer";
 import PostCard from "@/components/PostCard";
 import PostService from "@/services/PostService";
+import { setPostListStructuredData } from "@/structured-data/post";
 
 interface IProps {
   posts: IPost[]
@@ -21,6 +22,11 @@ export default function Post({ posts }: IProps) {
         <meta property="og:description" content="Si te interesa conocer más sobre la práctica de reutilización de telas en desuso y cómo se puede contribuir al movimiento de consumo consciente, te invitamos a leer algunos artículos relacionados." />
         <meta property="og:image" content="https://anyaeco.com/avatar.png" />
         <meta property="og:url" content="https://anyaeco.com/blog" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: setPostListStructuredData(posts, true) }}
+          key="product-jsonld"
+        />
       </Head>
       <PageContainer>
         <h1 className="text-5xl mb-5 mx-4 text-gray-600 mt-4 md:mt-0">El blog de Anya</h1>
