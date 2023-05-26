@@ -12,7 +12,13 @@ export default function MyApp({ Component, pageProps }: any) {
         <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#CEB1BE" />
+        <meta name="apple-mobile-web-app-status-bar" content="#CEB1BE" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any"/>
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="android-chrome" href="/android-chrome-192x192.png" type="image/png" sizes="192x192" />
+        <link rel="android-chrome" href="/android-chrome-512x512.png" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" />
       </Head>
       {process.env.ENVIRONMENT === 'production' && (
         <Script id="google-analytics" strategy="afterInteractive">
