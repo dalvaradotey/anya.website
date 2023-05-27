@@ -18,8 +18,7 @@ interface IProps {
 }
 
 export async function generateMetadata(
-  { params }: IProps,
-  parent?: ResolvingMetadata,
+  { params }: IProps
 ): Promise<Metadata> {
   const postService = new PostService
   const posts = await postService.get({
