@@ -29,21 +29,19 @@ export function setProductListStructuredData(
   products: IProduct[],
   convertToString: boolean = false
 ): WithContext<ItemList> | string {
-  let structuredData: WithContext<ItemList> = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "url": "http://anyaeco.com/tienda",
-    "numberOfItems": products?.length,
-    "itemListElement": []
-  }
-
   const itemListElement = []
 
   for (const item of products) {
     itemListElement.push(setProductStructuredData(item))
   }
 
-  structuredData.itemListElement = itemListElement
+  const structuredData: WithContext<ItemList> = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "url": "http://anyaeco.com/tienda",
+    "numberOfItems": products?.length,
+    "itemListElement": itemListElement
+  }
 
   return (convertToString)
     ? JSON.stringify(structuredData)

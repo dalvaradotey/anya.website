@@ -10,12 +10,13 @@ export function setPostStructuredData(
   const structuredData: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `https://anyaeco.com/blog/${post?.attributes?.slug}`,
     "mainEntityOfPage": `https://anyaeco.com/blog/${post?.attributes?.slug}`,
     "headline": post?.attributes?.title,
     "name": post?.attributes?.title,
     "description": post?.attributes?.description,
-    "datePublished": moment(post?.attributes?.publishedAt).format("YYYY-MM-DD"),
-    "dateModified": moment(post?.attributes?.updatedAt).format("YYYY-MM-DD"),
+    "datePublished": moment(post?.attributes?.publishedAt).format("YYYY-MM-DD").toString(),
+    "dateModified": moment(post?.attributes?.updatedAt).format("YYYY-MM-DD").toString(),
     "author": {
       "@type": "Person",
       "name": post?.attributes?.author?.data?.attributes?.name,
@@ -57,8 +58,14 @@ export function setPostStructuredData(
 export function setPostListStructuredData(
   posts: IPost[],
   convertToString: boolean = false
-): WithContext<Blog> | string {
-  let structuredData: WithContext<Blog>  = {
+) {
+  const blogPost = []
+
+  for (const post of posts) {
+    blogPost.push(setPostStructuredData(post))
+  }
+
+  const structuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://anyaeco.com/blog",
@@ -66,16 +73,8 @@ export function setPostListStructuredData(
     "name": "Anya Blog",
     "description": "Si te interesa conocer más sobre la práctica de reutilización de telas en desuso y cómo se puede contribuir al movimiento de consumo consciente, te invitamos a leer algunos artículos relacionados.",
     "publisher": publisherStructuredData,
-    "blogPost": []
+    "blogPost": blogPost,
   }
-
-  const blogPost = []
-
-  for (const post of posts) {
-    blogPost.push(setPostStructuredData(post))
-  }
-
-  structuredData.blogPost = blogPost
 
   return (convertToString)
     ? JSON.stringify(structuredData)
