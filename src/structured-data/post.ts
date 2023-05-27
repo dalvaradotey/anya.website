@@ -19,7 +19,7 @@ export function setPostStructuredData(post: IPost, convertToString: boolean = fa
         "@type": "ImageObject",
         "@id": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.url,
         "url": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.url,
-        "height": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.heigth,
+        "height": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.height,
         "width": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.width
       }
     },
@@ -28,7 +28,7 @@ export function setPostStructuredData(post: IPost, convertToString: boolean = fa
       "@type": "ImageObject",
       "@id": post?.attributes?.image?.data?.attributes?.url,
       "url": post?.attributes?.image?.data?.attributes?.url,
-      "height": post?.attributes?.image?.data?.attributes?.heigth,
+      "height": post?.attributes?.image?.data?.attributes?.height,
       "width": post?.attributes?.image?.data?.attributes?.width
     },
     "url": `https://anyaeco.com/blog/${post?.attributes?.slug}`,

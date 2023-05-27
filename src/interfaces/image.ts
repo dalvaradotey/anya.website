@@ -17,7 +17,7 @@ export interface IImage {
     alternativeText?: string
     caption?: string
     width?: number
-    heigth?: number
+    height?: number
     formats?: {
       large?: IImageFormat
       small?: IImageFormat
