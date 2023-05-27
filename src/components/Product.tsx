@@ -15,7 +15,7 @@ const Product = ({ product }: IProps) => (
   <a
     href={`https://api.whatsapp.com/send/?phone=56981429016&text=${setWhatsAppMessage(product)}`}
     target="_blank"
-    className={`relative snap-center shrink-0 fill-img bg-cover product-card drop-shadow-md hover:drop-shadow-xl cursor-pointer`} 
+    className={`relative snap-center shrink-0 fill-img bg-cover w-72 h-96 drop-shadow-md hover:drop-shadow-xl cursor-pointer`} 
   >
     <Image
       src={product?.attributes?.image?.data?.attributes?.formats?.small?.url || ''}
