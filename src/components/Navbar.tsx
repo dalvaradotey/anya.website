@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <header className="fixed w-full top-0 bg-white px-3 py-2 md:px-32" style={{ zIndex: 1000 }}>
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/5">
+        <div className="flex w-full md:w-1/5">
           <Link
             href="/"
           >

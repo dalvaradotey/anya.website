@@ -22,9 +22,9 @@ const ShopContainer = ({ categories }: IProps) => {
         <p>Filtrar por categoría:&nbsp;</p>
         <select value={filter} onChange={filterHandler}>
           <option value={0}>Todos</option>
-          {categories.map((item: ICategory, key: any) => 
-            <option key={key} value={item?.id}>{item?.attributes?.name}</option>
-          )}
+          {categories.map((item: ICategory, key: any) => (
+            !!item?.attributes?.products?.data?.length && <option key={key} value={item?.id}>{item?.attributes?.name}</option>
+          ))}
         </select>
       </div>
       <div className="relative w-full flex flex-wrap md:gap-4 gap-y-4 pb-14" style={{ zIndex: 0 }}>
