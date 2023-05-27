@@ -1,8 +1,12 @@
+import { Product, ItemList, WithContext } from 'schema-dts'
 import { ICategory } from "@/interfaces/category"
 import { IProduct } from "@/interfaces/product"
 
-export function setProductStructuredData(product: IProduct, convertToString: boolean = false) {
-  const structuredData = {
+export function setProductStructuredData(
+  product: IProduct,
+  convertToString: boolean = false
+): WithContext<Product> | string {
+  const structuredData: WithContext<Product> = {
     "@context": "https://schema.org",
     "@type": "Product",
     "description": product?.attributes?.name,
@@ -21,8 +25,11 @@ export function setProductStructuredData(product: IProduct, convertToString: boo
     : structuredData
 }
 
-export function setProductListStructuredData(products: IProduct[], convertToString: boolean = false) {
-  let structuredData: any = {
+export function setProductListStructuredData(
+  products: IProduct[],
+  convertToString: boolean = false
+): WithContext<ItemList> | string {
+  let structuredData: WithContext<ItemList> = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "url": "http://anyaeco.com/tienda",
@@ -30,16 +37,23 @@ export function setProductListStructuredData(products: IProduct[], convertToStri
     "itemListElement": []
   }
 
+  const itemListElement = []
+
   for (const item of products) {
-    structuredData.itemListElement.push(setProductStructuredData(item))
+    itemListElement.push(setProductStructuredData(item))
   }
+
+  structuredData.itemListElement = itemListElement
 
   return (convertToString)
     ? JSON.stringify(structuredData)
     : structuredData
 }
 
-export function setCategoryProductListStructuredData(categories: ICategory[], convertToString: boolean = false) {
+export function setCategoryProductListStructuredData(
+  categories: ICategory[],
+  convertToString: boolean = false
+): WithContext<ItemList> | string {
   let products: IProduct[] = []
 
   for (const category of categories) {

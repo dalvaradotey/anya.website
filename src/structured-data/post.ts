@@ -1,10 +1,14 @@
+import { BlogPosting, Blog, WithContext } from 'schema-dts'
 import { IPost } from "@/interfaces/post"
 import moment from 'moment'
 import { publisherStructuredData } from "./publisher"
 
-export function setPostStructuredData(post: IPost, convertToString: boolean = false) {
-  const structuredData = {
-    "@context": "https://schema.org/",
+export function setPostStructuredData(
+  post: IPost,
+  convertToString: boolean = false
+): WithContext<BlogPosting> | string {
+  const structuredData: WithContext<BlogPosting> = {
+    "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": `https://anyaeco.com/blog/${post?.attributes?.slug}`,
     "headline": post?.attributes?.title,
@@ -19,8 +23,8 @@ export function setPostStructuredData(post: IPost, convertToString: boolean = fa
         "@type": "ImageObject",
         "@id": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.url,
         "url": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.url,
-        "height": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.height,
-        "width": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.width
+        "height": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.height?.toString(),
+        "width": post?.attributes?.author?.data?.attributes?.image?.data?.attributes?.width?.toString()
       }
     },
     "publisher": publisherStructuredData,
@@ -28,8 +32,8 @@ export function setPostStructuredData(post: IPost, convertToString: boolean = fa
       "@type": "ImageObject",
       "@id": post?.attributes?.image?.data?.attributes?.url,
       "url": post?.attributes?.image?.data?.attributes?.url,
-      "height": post?.attributes?.image?.data?.attributes?.height,
-      "width": post?.attributes?.image?.data?.attributes?.width
+      "height": post?.attributes?.image?.data?.attributes?.height?.toString(),
+      "width": post?.attributes?.image?.data?.attributes?.width?.toString()
     },
     "url": `https://anyaeco.com/blog/${post?.attributes?.slug}`,
     "isPartOf": {
@@ -50,9 +54,12 @@ export function setPostStructuredData(post: IPost, convertToString: boolean = fa
     : structuredData
 }
 
-export function setPostListStructuredData(posts: IPost[], convertToString: boolean = false) {
-  let structuredData: any = {
-    "@context": "https://schema.org/",
+export function setPostListStructuredData(
+  posts: IPost[],
+  convertToString: boolean = false
+): WithContext<Blog> | string {
+  let structuredData: WithContext<Blog>  = {
+    "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://anyaeco.com/blog",
     "mainEntityOfPage": "https://anyaeco.com/blog",
@@ -62,9 +69,13 @@ export function setPostListStructuredData(posts: IPost[], convertToString: boole
     "blogPost": []
   }
 
+  const blogPost = []
+
   for (const post of posts) {
-    structuredData.blogPost.push(setPostStructuredData(post))
+    blogPost.push(setPostStructuredData(post))
   }
+
+  structuredData.blogPost = blogPost
 
   return (convertToString)
     ? JSON.stringify(structuredData)

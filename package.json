@@ -28,6 +28,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@types/accounting": "^0.4.2"
+    "@types/accounting": "^0.4.2",
+    "schema-dts": "^1.1.2"
   }
 }
