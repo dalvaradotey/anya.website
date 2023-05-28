@@ -10,7 +10,6 @@ export function setPostStructuredData(
   const structuredData: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": `https://anyaeco.com/blog/${post?.attributes?.slug}`,
     "mainEntityOfPage": `https://anyaeco.com/blog/${post?.attributes?.slug}`,
     "headline": post?.attributes?.title,
     "name": post?.attributes?.title,

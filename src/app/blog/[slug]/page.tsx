@@ -8,7 +8,7 @@ import PostService from "@/services/PostService"
 import Image from "next/image"
 
 import { setPostStructuredData } from "@/structured-data/post"
-import { Metadata, ResolvingMetadata } from "next"
+import { Metadata } from "next"
 import { openGraphMetadata } from "@/app/shared-metadata"
 
 interface IProps {
@@ -87,7 +87,7 @@ export default async function Post({ params }: IProps) {
       </PageContainer>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: setPostStructuredData(post?.data, true) }}
+        dangerouslySetInnerHTML={{ __html: setPostStructuredData(post, true) }}
       />
     </>
   )

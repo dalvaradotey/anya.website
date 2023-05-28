@@ -3,8 +3,9 @@ import Image from "next/image"
 import FollowUs from "@/components/FollowUs"
 import HeaderContent from "@/components/HeaderContent"
 import { openGraphMetadata } from "../shared-metadata"
+import { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Anya | Acerca de nosotros',
   description: 'Accesorios hechos con amor y prendas reutilizadas, regalando confecciones únicas y rescatando historias. Descubre más aquí.',
   openGraph: {

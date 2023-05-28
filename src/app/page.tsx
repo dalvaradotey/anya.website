@@ -3,8 +3,9 @@ import AboutOurProducts from '../components/AboutOurProducts'
 import ProductsHome from '@/components/ProductsHome'
 import CategoryService from '@/services/CategoryService'
 import { openGraphMetadata } from './shared-metadata'
+import { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Anya | Transformando telas olvidadas en creaciones renovadas',
   description: 'Transformando telas olvidadas en creaciones renovadas',
   openGraph: {

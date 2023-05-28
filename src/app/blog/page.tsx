@@ -4,9 +4,10 @@ import PageContainer from "@/components/PageContainer"
 import PostCard from "@/components/PostCard"
 import PostService from "@/services/PostService";
 import { setPostListStructuredData } from "@/structured-data/post"
-import { openGraphMetadata } from "../shared-metadata";
+import { openGraphMetadata } from "../shared-metadata"
+import { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Anya | Blog',
   description: 'Si te interesa conocer más sobre la práctica de reutilización de telas en desuso y cómo se puede contribuir al movimiento de consumo consciente, te invitamos a leer algunos artículos relacionados.',
   openGraph: {

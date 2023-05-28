@@ -2,8 +2,9 @@ import CategoryService from "@/services/CategoryService"
 import ShopContainer from "@/components/ShopContainer"
 import { setCategoryProductListStructuredData } from "@/structured-data/product"
 import { openGraphMetadata } from "../shared-metadata"
+import { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Anya | Revisa nuestro catálogo de accesorios',
   description: 'Revisa nuestro catálogo de accesorios únicos confeccionados con telas reutilizadas.',
   openGraph: {
