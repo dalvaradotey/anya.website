@@ -7,6 +7,7 @@ import { openGraphMetadata } from "../shared-metadata"
 import { Metadata } from "next"
 import PageService from "@/services/PageService"
 import { IPage } from "@/interfaces/page"
+import AboutProvider, { IAboutProvider } from "@/providers/AboutProvider"
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageService = new PageService
@@ -34,15 +35,9 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function Post() {
-  const pageService = new PageService
-  const pages = await pageService.get({
-    'populate[0]': 'image',
-    'filters[slug][$eq]': 'nosotros'
-  })
-  const page: IPage = pages?.data[0]
-  const md = new MarkdownIt({ html: true });
-  page.attributes.description = md.render(page?.attributes?.description || '')
+export default async function Page() {
+  const pageProvider = new AboutProvider
+  const { page }: IAboutProvider = await pageProvider.getData()
 
   return (
     <PageContainer>

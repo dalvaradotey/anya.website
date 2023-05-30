@@ -1,6 +1,4 @@
 import FollowUs from "@/components/FollowUs"
-import MarkdownIt from 'markdown-it'
-
 import PageContainer from "@/components/PageContainer"
 import ReadTime from "@/components/ReadTime"
 import Author from "@/components/Author"
@@ -10,6 +8,7 @@ import Image from "next/image"
 import { setPostStructuredData } from "@/structured-data/post"
 import { Metadata } from "next"
 import { openGraphMetadata } from "@/app/shared-metadata"
+import PostProvider, { IPostProvider } from "@/providers/PostProvider"
 
 interface IProps {
   params: { 
@@ -47,17 +46,9 @@ export async function generateMetadata(
   };
 }
 
-export default async function Post({ params }: IProps) {
-  const postService = new PostService
-  const posts = await postService.get({
-    'filters[slug][$eq]': params?.slug,
-    'populate[0]': 'image',
-    'populate[1]': 'author.image',
-  })
-
-  const md = new MarkdownIt({ html: true });
-  const post = posts?.data[0]
-  post.attributes.content = md.render(post?.attributes?.content)
+export default async function Page({ params }: IProps) {
+  const pageProvider = new PostProvider
+  const { post }: IPostProvider = await pageProvider.getData({ params })
 
   return (
     <>
@@ -96,8 +87,6 @@ export default async function Post({ params }: IProps) {
 export async function generateStaticParams() {
   const postService = new PostService
   const posts = await postService.get()
-
-  if (!posts?.data?.length) return { paths: [], fallback: false  }
 
   return posts?.data?.map((post: any) => ({
     slug: post?.attributes?.slug
