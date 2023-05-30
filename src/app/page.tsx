@@ -4,23 +4,33 @@ import ProductsHome from '@/components/ProductsHome'
 import CategoryService from '@/services/CategoryService'
 import { openGraphMetadata } from './shared-metadata'
 import { Metadata } from 'next'
+import PageService from '@/services/PageService'
+import { IPage } from '@/interfaces/page'
 
-export const metadata: Metadata = {
-  title: 'Anya | Transformando telas olvidadas en creaciones renovadas',
-  description: 'Transformando telas olvidadas en creaciones renovadas',
-  openGraph: {
-    ...openGraphMetadata,
-    title: 'Anya | Transformando telas olvidadas en creaciones renovadas',
-    description: 'Transformando telas olvidadas en creaciones renovadas',
-    url: 'https://anyaeco.com',
-    images: [
-      {
-        url: '/avatar.png',
-        width: 662,
-        height: 692,
-      },
-    ],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const pageService = new PageService
+  const pages = await pageService.get({
+    'filters[slug][$eq]': 'blog'
+  })
+  const page: IPage = pages?.data[0]
+ 
+  return {
+    title: page?.attributes?.metaTitle,
+    description: page?.attributes?.metaDescription,
+    openGraph: {
+      ...openGraphMetadata,
+      title: page?.attributes?.metaTitle,
+      description: page?.attributes?.metaDescription,
+      url: 'https://anyaeco.com/blog',
+      images: [
+        {
+          url: '/avatar.png',
+          width: 662,
+          height: 692,
+        },
+      ],
+    },
+  }
 }
 
 export default async function Home() {

@@ -5,13 +5,15 @@ import Product from './Product'
 import { ICategory } from '@/interfaces/category'
 import { IProduct } from '@/interfaces/product'
 import { IColor } from '@/interfaces/color'
+import { IPage } from '@/interfaces/page'
 
 interface IProps {
+  page: IPage
   categories: ICategory[]
   colors: IColor[]
 }
 
-const ShopContainer = ({ categories, colors }: IProps) => {
+const ShopContainer = ({ page, categories, colors }: IProps) => {
   const [filter, setFilter] = useState<number>(0)
   const [colorsFilter, setColorFilter] = useState<number[]>([])
 
@@ -47,8 +49,11 @@ const ShopContainer = ({ categories, colors }: IProps) => {
 
   return (
     <div className="py-28 pl-12 md:pl-28 mt-8 md:mt-0">
-      <h3 className="font-bold text-5xl leading-10 mb-4">Nuestra tienda</h3>
-      <p className="mb-12 text-2xl">Revisa nuestro <strong>catálogo de accesorios</strong>.</p>
+      <h3 className="font-bold text-5xl leading-10 mb-4">{page?.attributes?.title}</h3>
+      <div
+        className="mb-12 text-2xl"
+        dangerouslySetInnerHTML={{ __html: page?.attributes?.description || '' }}
+      />
       <div className="md:flex mb-3 gap-6 mb-6">
         <div className="mb-6">
           <p className="text-xs uppercase font-bold">Categorías</p>

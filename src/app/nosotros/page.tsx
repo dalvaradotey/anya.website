@@ -1,35 +1,55 @@
 import PageContainer from "@/components/PageContainer"
+import MarkdownIt from 'markdown-it'
 import Image from "next/image"
 import FollowUs from "@/components/FollowUs"
 import HeaderContent from "@/components/HeaderContent"
 import { openGraphMetadata } from "../shared-metadata"
 import { Metadata } from "next"
+import PageService from "@/services/PageService"
+import { IPage } from "@/interfaces/page"
 
-export const metadata: Metadata = {
-  title: 'Anya | Acerca de nosotros',
-  description: 'Accesorios hechos con amor y prendas reutilizadas, regalando confecciones únicas y rescatando historias. Descubre más aquí.',
-  openGraph: {
-    ...openGraphMetadata,
-    title: 'Anya | Acerca de nosotros',
-    description: 'Accesorios hechos con amor y prendas reutilizadas, regalando confecciones únicas y rescatando historias. Descubre más aquí.',
-    url: 'https://anyaeco.com/nosotros',
-    images: [
-      {
-        url: '/avatar.png',
-        width: 662,
-        height: 692,
-      },
-    ],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const pageService = new PageService
+  const pages = await pageService.get({
+    'filters[slug][$eq]': 'nosotros'
+  })
+  const page: IPage = pages?.data[0]
+ 
+  return {
+    title: page?.attributes?.metaTitle,
+    description: page?.attributes?.metaDescription,
+    openGraph: {
+      ...openGraphMetadata,
+      title: page?.attributes?.metaTitle,
+      description: page?.attributes?.metaDescription,
+      url: 'https://anyaeco.com/nosotros',
+      images: [
+        {
+          url: '/avatar.png',
+          width: 662,
+          height: 692,
+        },
+      ],
+    },
+  }
 }
 
-export default function Post() {
+export default async function Post() {
+  const pageService = new PageService
+  const pages = await pageService.get({
+    'populate[0]': 'image',
+    'filters[slug][$eq]': 'nosotros'
+  })
+  const page: IPage = pages?.data[0]
+  const md = new MarkdownIt({ html: true });
+  page.attributes.description = md.render(page?.attributes?.description || '')
+
   return (
     <PageContainer>
       <div>
         <div className="relative w-full h-96">
           <Image
-            src="https://anyaeco.s3.us-west-2.amazonaws.com/large_sentadas_frente_al_mar_d4a47d938a.jpg"
+            src={page?.attributes?.image?.data?.attributes?.url || ''}
             alt=""
             className="object-fit"
             fill={true}
@@ -37,8 +57,8 @@ export default function Post() {
         </div>
         <div className="text-lg justify">
           <HeaderContent
-            title="Acerca de nosotros"
-            description="Anya nació de la necesidad de una pequeña niña desordenada y de su mamá que vio la bonita posibilidad de regalarle un básico hecho con dedicación y amor, rescatando historias de prendas que ya no podia usar pero que ahora era posible al darle segunda oportunidad."
+            title={page?.attributes?.title || ''}
+            description={page?.attributes?.description || ''}
           />
           <div className="px-8 blog-content">
             <p>Desde este sur en donde pareciera que la vida en ocasiones no avanza como en esos otros lugares donde va todo a prisa, te  saludo por estar  aqui para conocer un poquito de Anya. </p>
