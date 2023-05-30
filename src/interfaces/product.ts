@@ -1,5 +1,6 @@
 import { IAuthor } from "./author"
 import { ICategory } from "./category"
+import { IColor } from "./color"
 import { IImage } from "./image"
 
 export interface IProduct {
@@ -14,6 +15,9 @@ export interface IProduct {
     }
     category: {
       data: ICategory
+    }
+    colors: {
+      data: IColor[]
     }
   }
 }
