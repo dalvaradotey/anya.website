@@ -49,6 +49,7 @@ class HttpRequest {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${this.token}`,
       },
+      next: { revalidate: 10 },
     });
 
     return await response.json();
