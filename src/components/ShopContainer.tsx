@@ -66,7 +66,7 @@ const ShopContainer = ({ page, categories, colors }: IProps) => {
         </div>
         <div className="snap-x snap-mandatory overflow-x-auto">
           <p className="text-xs uppercase font-bold mb-1" style={{ marginTop: '-3px' }}>Colores</p>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap md:flex-nowrap gap-3">
             {colors.map((color, key) => (
               <button
                 key={key}
