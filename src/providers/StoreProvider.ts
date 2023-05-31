@@ -1,6 +1,7 @@
 import { ICategory } from "@/interfaces/category"
 import { IColor } from "@/interfaces/color"
 import { IPage } from "@/interfaces/page"
+import { IProduct } from "@/interfaces/product"
 import CategoryService from "@/services/CategoryService"
 import PageService from "@/services/PageService"
 import MarkdownIt from 'markdown-it'
@@ -9,6 +10,7 @@ export interface IStoreProvider {
   categories: ICategory[]
   colors: IColor[]
   page: IPage
+  products: IProduct[]
 }
 
 class StoreProvider {
@@ -21,7 +23,8 @@ class StoreProvider {
       'populate[1]': 'products.image,products.category,products.colors',
       'filters[products][isTop][$eq]': true,
     })
-    const colors = this._setColorList(categories?.data)
+    const colors = categoryService.setColorList(categories?.data)
+    const products = categoryService.setProductList(categories?.data)
   
     const pageService = new PageService
     const pages = await pageService.get({
@@ -35,24 +38,9 @@ class StoreProvider {
     return {
       colors,
       page,
+      products,
       categories: categories?.data
     }
-  }
-
-  _setColorList(categories: ICategory[]) {
-    const colors: IColor[] = []
-
-    for (const category of categories) {
-      for (const product of category?.attributes?.products?.data) {
-        for (const color of product?.attributes?.colors?.data) {
-          if (colors.findIndex(i => i.id === color.id) === -1) {
-            colors.push(color)
-          }
-        }
-      }
-    }
-
-    return colors
   }
 }
 

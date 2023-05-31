@@ -35,13 +35,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page() {
   const pageProvider = new HomeProvider
-  const { categories }: IHomeProvider = await pageProvider?.getData()
+  const { categories, products }: IHomeProvider = await pageProvider?.getData()
 
   return (
     <>
       <Hero />
       <AboutOurProducts />
-      <ProductsHome categories={categories} />
+      <ProductsHome categories={categories} products={products} />
     </>
   )
 }

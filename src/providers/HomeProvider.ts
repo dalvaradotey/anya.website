@@ -1,8 +1,10 @@
 import { ICategory } from "@/interfaces/category"
+import { IProduct } from "@/interfaces/product"
 import CategoryService from "@/services/CategoryService"
 
 export interface IHomeProvider {
   categories: ICategory[]
+  products: IProduct[]
 }
 
 class HomeProvider {
@@ -16,7 +18,10 @@ class HomeProvider {
       'filters[products][isTop][$eq]': true,
     })
 
+    const products = categoryService.setProductList(categories?.data)
+
     return {
+      products,
       categories: categories?.data
     }
   }

@@ -13,9 +13,10 @@ interface IProps {
   page: IPage
   categories: ICategory[]
   colors: IColor[]
+  products: IProduct[]
 }
 
-const StoreContainer = ({ page, categories, colors }: IProps) => {
+const StoreContainer = ({ page, categories, colors, products }: IProps) => {
   const [filter, setFilter] = useState<number>(0)
   const [colorsFilter, setColorFilter] = useState<number[]>([])
 
@@ -80,11 +81,9 @@ const StoreContainer = ({ page, categories, colors }: IProps) => {
         </div>
       </div>
       <div className="relative w-full flex flex-wrap md:gap-4 gap-y-4 pb-14" style={{ zIndex: 0 }}>
-        {categories.map((category: ICategory, _: any) => 
-          category?.attributes?.products?.data?.map((product: IProduct, productKey: any) => (
-            showProduct(product) && <ProductCard key={productKey} product={product} />            
-          ))
-        )}
+        {products.map((product: IProduct, productKey: any) => (
+          showProduct(product) && <ProductCard key={productKey} product={product} />            
+        ))}
       </div>
     </div>
   )

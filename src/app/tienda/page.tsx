@@ -34,7 +34,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page() {
   const pageProvider = new StoreProvider
-  const { page, categories, colors }: IStoreProvider = await pageProvider?.getData()
+  const {
+    page,
+    categories,
+    colors,
+    products
+  }: IStoreProvider = await pageProvider?.getData()
 
   return (
     <>
@@ -42,6 +47,7 @@ export default async function Page() {
         page={page}
         categories={categories}
         colors={colors}
+        products={products}
       />
       <script
         type="application/ld+json"
