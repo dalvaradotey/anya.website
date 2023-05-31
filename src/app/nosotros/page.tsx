@@ -1,5 +1,4 @@
 import PageContainer from "@/components/PageContainer"
-import MarkdownIt from 'markdown-it'
 import Image from "next/image"
 import FollowUs from "@/components/FollowUs"
 import HeaderContent from "@/components/HeaderContent"
