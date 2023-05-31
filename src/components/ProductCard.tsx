@@ -11,7 +11,7 @@ const PRODUCT_WHATSAPP_MESSAGE = 'Hola! Estoy viendo la tienda anyaeco.com y me 
 
 const setWhatsAppMessage = (product: IProduct) => `${PRODUCT_WHATSAPP_MESSAGE} ${product?.attributes?.name} (ID:${product?.id})`
 
-const Product = ({ product }: IProps) => (
+const ProductCard = ({ product }: IProps) => (
   <a
     href={`https://api.whatsapp.com/send/?phone=56981429016&text=${setWhatsAppMessage(product)}`}
     target="_blank"
@@ -51,4 +51,4 @@ const Product = ({ product }: IProps) => (
   </a>
 )
 
-export default Product
+export default ProductCard

@@ -1,11 +1,13 @@
 "use client"
 
 import { useState } from 'react'
-import Product from './Product'
+import ProductCard from './ProductCard'
 import { ICategory } from '@/interfaces/category'
 import { IProduct } from '@/interfaces/product'
 import { IColor } from '@/interfaces/color'
 import { IPage } from '@/interfaces/page'
+import CategorySelector from './CategorySelector'
+import ColorSelector from './ColorSelector'
 
 interface IProps {
   page: IPage
@@ -13,7 +15,7 @@ interface IProps {
   colors: IColor[]
 }
 
-const ShopContainer = ({ page, categories, colors }: IProps) => {
+const StoreContainer = ({ page, categories, colors }: IProps) => {
   const [filter, setFilter] = useState<number>(0)
   const [colorsFilter, setColorFilter] = useState<number[]>([])
 
@@ -57,33 +59,22 @@ const ShopContainer = ({ page, categories, colors }: IProps) => {
       <div className="md:flex mb-3 gap-6 mb-6">
         <div className="mb-6">
           <p className="text-xs uppercase font-bold">Categorías</p>
-          <select value={filter} onChange={filterHandler}>
-            <option value={0}>Todas</option>
-            {categories.map((item: ICategory, key: any) => (
-              !!item?.attributes?.products?.data?.length && <option key={key} value={item?.id}>{item?.attributes?.name}</option>
-            ))}
-          </select>
+          <CategorySelector
+            value={filter}
+            onChange={filterHandler}
+            categories={categories}
+          />
         </div>
         <div className="snap-x snap-mandatory overflow-x-auto">
           <p className="text-xs uppercase font-bold mb-1" style={{ marginTop: '-3px' }}>Colores</p>
           <div className="flex flex-wrap md:flex-nowrap gap-3">
             {colors.map((color, key) => (
-              <button
+              <ColorSelector
                 key={key}
-                className="rounded-full"
-                style={{
-                  backgroundColor: color?.attributes?.code,
-                  width: 25,
-                  height: 25,
-                }}
+                color={color}
+                selectedIds={colorsFilter}
                 onClick={() => handlerColorFilter(color?.id)}
-              >
-                <span
-                  className={`${colorsFilter.includes(color?.id) ? 'text-white' : 'text-transparent'}`}
-                >
-                  &#10003;
-                </span>
-              </button>
+              />
             ))}
           </div>
         </div>
@@ -91,7 +82,7 @@ const ShopContainer = ({ page, categories, colors }: IProps) => {
       <div className="relative w-full flex flex-wrap md:gap-4 gap-y-4 pb-14" style={{ zIndex: 0 }}>
         {categories.map((category: ICategory, _: any) => 
           category?.attributes?.products?.data?.map((product: IProduct, productKey: any) => (
-            showProduct(product) && <Product key={productKey} product={product} />            
+            showProduct(product) && <ProductCard key={productKey} product={product} />            
           ))
         )}
       </div>
@@ -99,4 +90,4 @@ const ShopContainer = ({ page, categories, colors }: IProps) => {
   )
 }
 
-export default ShopContainer
+export default StoreContainer

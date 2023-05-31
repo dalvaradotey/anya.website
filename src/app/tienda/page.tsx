@@ -1,4 +1,4 @@
-import ShopContainer from "@/components/ShopContainer"
+import StoreContainer from "@/components/StoreContainer"
 import { setCategoryProductListStructuredData } from "@/structured-data/product"
 import { openGraphMetadata } from "../shared-metadata"
 import { Metadata } from "next"
@@ -38,7 +38,7 @@ export default async function Page() {
 
   return (
     <>
-      <ShopContainer
+      <StoreContainer
         page={page}
         categories={categories}
         colors={colors}

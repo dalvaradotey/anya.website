@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from 'react'
-import Product from './Product'
+import ProductCard from './ProductCard'
 import { ICategory } from '@/interfaces/category'
 import { IProduct } from '@/interfaces/product'
+import CategorySelector from './CategorySelector'
 
 interface IProps {
   categories: ICategory[]
@@ -20,17 +21,16 @@ const ProductsHome = ({ categories }: IProps) => {
       <p className="mb-12 text-2xl">Revisa nuestro <strong>catálogo de accesorios</strong>.</p>
       <div className="flex mb-3">
         <p>Filtrar por categoría:&nbsp;</p>
-        <select value={filter} onChange={filterHandler}>
-          <option value={0}>Todos</option>
-          {categories.map((item: ICategory, key: any) => (
-            !!item?.attributes?.products?.data?.length && <option key={key} value={item?.id}>{item?.attributes?.name}</option>
-          ))}
-        </select>
+        <CategorySelector
+          value={filter}
+          onChange={filterHandler}
+          categories={categories}
+        />
       </div>
       <div className="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-14" style={{ zIndex: 0 }}>
         {categories.map((category: ICategory, _: any) => 
           category?.attributes?.products?.data?.map((product: IProduct, productKey: any) => (
-            (filter === 0 || filter === category.id) && <Product key={productKey} product={product} />            
+            (filter === 0 || filter === category.id) && <ProductCard key={productKey} product={product} />            
           ))
         )}
       </div>
